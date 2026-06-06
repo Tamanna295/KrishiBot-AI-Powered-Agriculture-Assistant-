@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <![CDATA[# 🌾 KrishiBot — Agriculture WhatsApp AI Bot
 
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://python.org)
@@ -409,3 +410,7 @@ Built as a **Bachelor of Engineering (BE) Final Year Project**.
 
 This project is for educational purposes.
 ]]>
+=======
+# KrishiBot-AI-Powered-Agriculture-Assistant-
+Built an AI-powered agriculture assistant leveraging Machine Learning, agricultural datasets, and Generative AI to deliver crop recommendations, weather-based insights, market analysis, and personalized farmer assistance.
+>>>>>>> ed384fcd83a2a18b1589fd500e745bf988b4b4de
