@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.venv/
+
+# Environment Variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code Settings
+.vscode/
+
+# Large Datasets
+datasets/
+
+# Model Files
+*.pkl
+*.h5
+*.pt
+*.pth
+
+# Logs
+*.log
