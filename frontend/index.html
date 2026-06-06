@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌾 KrishiBot — Agriculture AI Assistant</title>
+    <meta name="description" content="AI-powered agriculture chatbot providing crop recommendations, soil health, weather data, and pesticide guidance for Indian farmers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="bot-avatar">
+                    <span class="avatar-icon">🌾</span>
+                </div>
+                <div class="bot-info">
+                    <h1>KrishiBot</h1>
+                    <p class="bot-status">🟢 Online — Ready to help</p>
+                </div>
+            </div>
+
+            <!-- Location Selector -->
+            <div class="location-selector">
+                <h3>📍 Your Location</h3>
+                <div class="select-wrapper">
+                    <select id="stateSelect">
+                        <option value="">Select State...</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select id="districtSelect" disabled>
+                        <option value="">Select District...</option>
+                    </select>
+                </div>
+                <div class="select-wrapper lang-select">
+                    <select id="langSelect">
+                        <option value="english">🇬🇧 English</option>
+                        <option value="hindi">🇮🇳 हिंदी</option>
+                        <option value="marathi">🇮🇳 मराठी</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories">
+                <h3>📋 Quick Actions</h3>
+                <button class="category-btn" data-category="advice" id="btn-advice">
+                    <span class="cat-icon">🌱</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Crop Advice</span>
+                        <span class="cat-desc">Top 3 crop recommendations</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+                <button class="category-btn" data-category="soil" id="btn-soil">
+                    <span class="cat-icon">🧪</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Soil Health</span>
+                        <span class="cat-desc">NPK, pH & fertility tips</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+                <button class="category-btn" data-category="weather" id="btn-weather">
+                    <span class="cat-icon">🌦️</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Weather</span>
+                        <span class="cat-desc">Temperature, rainfall & forecast</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+                <button class="category-btn" data-category="market" id="btn-market">
+                    <span class="cat-icon">📊</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Market Price</span>
+                        <span class="cat-desc">MSP & commodity prices</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+                <button class="category-btn" data-category="pesticide" id="btn-pesticide">
+                    <span class="cat-icon">🛡️</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Pesticide Guide</span>
+                        <span class="cat-desc">Bio vs Chemical comparison</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+                <button class="category-btn" data-category="yield" id="btn-yield">
+                    <span class="cat-icon">📈</span>
+                    <div class="cat-text">
+                        <span class="cat-title">Crop Yield</span>
+                        <span class="cat-desc">Production data by state</span>
+                    </div>
+                    <span class="cat-arrow">›</span>
+                </button>
+            </div>
+
+            <!-- Recent History Panel -->
+            <div class="history-panel" id="historyPanel" style="display:none">
+                <div class="history-title">🕐 Recent Queries</div>
+                <div id="historyList"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>🌿 Empowering Indian Farmers with AI</p>
+                <p style="font-size:.65rem;margin-top:4px;color:#4a5568">ML Model: RandomForest · 99.5% accuracy</p>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <main class="chat-area">
+            <div class="chat-header">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <div class="chat-header-avatar">🌾</div>
+                <div class="chat-header-info">
+                    <h2>KrishiBot</h2>
+                    <p id="chatStatus">Select your state & district to get started</p>
+                </div>
+                <div class="ml-badge" id="mlBadge" title="RandomForest ML model active">🤖 ML</div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message -->
+                <div class="message-group">
+                    <div class="date-divider"><span>Today</span></div>
+                    <div class="message bot-message fade-in">
+                        <div class="message-content">
+                            <p>🙏 <strong>Namaste! Welcome to KrishiBot v2</strong></p>
+                            <p>Now powered by a <strong>RandomForest ML model (99.5% accuracy)</strong> for crop recommendations!</p>
+                            <ul>
+                                <li>🌱 <strong>Crop Recommendations</strong> — ML-powered predictions</li>
+                                <li>🧪 <strong>Soil Health</strong> — NPK, pH analysis & tips</li>
+                                <li>🌦️ <strong>Weather Updates</strong> — Temperature & rainfall</li>
+                                <li>📊 <strong>Market Prices</strong> — MSP & commodity rates</li>
+                                <li>🛡️ <strong>Pesticide Guide</strong> — Eco-friendly recommendations</li>
+                                <li>📈 <strong>Crop Yield Data</strong> — Historical production info</li>
+                            </ul>
+                            <p>👈 <em>Select your <strong>State</strong> and <strong>District</strong>, then click a category!</em></p>
+                        </div>
+                        <span class="message-time">Now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="chat-input-bar">
+                <div class="input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Ask about crops, soil, weather, prices..." autocomplete="off">
+                    <button class="send-btn" id="sendBtn" title="Send">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
